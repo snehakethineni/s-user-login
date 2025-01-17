@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label for="password" class="label">Password:</label>
-    <input id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required class="input">
+    <input type="password" id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required class="input">
     <div *ngIf="password.invalid && password.touched" class="error">
       <small *ngIf="password.errors?.['required']">Password is required</small>
     </div>
