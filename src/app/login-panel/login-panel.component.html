@@ -1,0 +1,23 @@
+<h3>Please login</h3>
+<p>(For testing use: admin&#64;admin.com password: password)</p>
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="form">
+  <div class="form-group">
+    <label for="email" class="label">Email:</label>
+    <input id="email" name="email" [(ngModel)]="userInput.email" #email="ngModel" required email class="input">
+    <div *ngIf="email.invalid && email.touched" class="error">
+      <small *ngIf="email.errors?.['required']">Email is required</small>
+      <small *ngIf="email.errors?.['email']">Invalid email</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="label">Password:</label>
+    <input id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required class="input">
+    <div *ngIf="password.invalid && password.touched" class="error">
+      <small *ngIf="password.errors?.['required']">Password is required</small>
+    </div>
+    <div class="error" *ngIf="errorMessage" >
+      <small class="error-message">{{ errorMessage }}</small>
+    </div>
+  </div>
+  <button type="submit" class="submit-button">Submit</button>
+</form>
