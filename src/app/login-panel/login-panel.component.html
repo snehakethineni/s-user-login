@@ -1,20 +1,20 @@
-<p>login-panel works!</p>
-<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-  <div>
-    <label for="email">Email:</label>
-    <input id="email" name="email" [(ngModel)]="userInput.email" #email="ngModel" required email>
-    <div *ngIf="email.invalid && email.touched">
+<h3>Please login</h3>
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
+  <div class="form-group">
+    <label for="email" class="label">Email:</label>
+    <input id="email" name="email" [(ngModel)]="userInput.email" #email="ngModel" required email class="input">
+    <div *ngIf="email.invalid && email.touched" class="error">
       <small *ngIf="email.errors?.['required']">Email is required.</small>
       <small *ngIf="email.errors?.['email']">Invalid email</small>
     </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required minlength="6">
-    <div *ngIf="password.invalid && password.touched">
+  <div class="form-group">
+    <label for="password" class="label">Password:</label>
+    <input id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required minlength="6" class="input">
+    <div *ngIf="password.invalid && password.touched" class="error">
       <small *ngIf="password.errors?.['required']">Password is required.</small>
       <small *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</small>
     </div>
   </div>
-  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+  <button type="submit" [disabled]="loginForm.invalid" class="submit-button">Submit</button>
 </form>

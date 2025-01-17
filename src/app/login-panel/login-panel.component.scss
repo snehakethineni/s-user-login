@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  border: 1px solid black;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.input {
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+}
+
+
