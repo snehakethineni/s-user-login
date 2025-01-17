@@ -30,7 +30,6 @@ export class LoginPanelComponent implements OnInit {
   onSubmit(loginForm: NgForm) {
     if (!loginForm.valid) {
       loginForm.form.markAllAsTouched();
-      this.submittedCount++;
       return;
     }
 
