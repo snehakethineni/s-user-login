@@ -4,20 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login-panel',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login-panel.component.html',
-  styleUrl: './login-panel.component.scss',
+  styleUrls: ['./login-panel.component.scss'],
 })
 export class LoginPanelComponent {
-  email: string = '';
-  password: string = '';
+  userInput = {
+    email: '',
+    password: '',
+  };
   submittedCount = 0;
 
   onSubmit() {
     this.submittedCount++;
-    console.log(this.email);
-    console.log(this.password);
-    if (this.email && this.password) {
+    console.log(this.userInput);
+    if (this.userInput.email && this.userInput.password) {
       // Handle form submission
     }
   }

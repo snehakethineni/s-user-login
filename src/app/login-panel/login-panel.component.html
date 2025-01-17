@@ -2,7 +2,7 @@
 <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
   <div>
     <label for="email">Email:</label>
-    <input id="email" name="email" [(ngModel)]="email" #email="ngModel" required email>
+    <input id="email" name="email" [(ngModel)]="userInput.email" #email="ngModel" required email>
     <div *ngIf="email.invalid && email.touched">
       <small *ngIf="email.errors?.['required']">Email is required.</small>
       <small *ngIf="email.errors?.['email']">Invalid email</small>
@@ -10,7 +10,7 @@
   </div>
   <div>
     <label for="password">Password:</label>
-    <input id="password" name="password" [(ngModel)]="password" #password="ngModel" required minlength="6">
+    <input id="password" name="password" [(ngModel)]="userInput.password" #password="ngModel" required minlength="6">
     <div *ngIf="password.invalid && password.touched">
       <small *ngIf="password.errors?.['required']">Password is required.</small>
       <small *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</small>
