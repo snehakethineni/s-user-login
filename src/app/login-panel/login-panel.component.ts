@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -20,17 +20,28 @@ export class LoginPanelComponent {
 
   constructor(private loginService: LoginService) {}
 
-  onSubmit() {
+  onSubmit(loginForm: NgForm) {
+    if(!loginForm.valid) {
+      loginForm.form.markAllAsTouched();
+      this.submittedCount++;
+      return;
+    }
+
     if (this.userInput.email && this.userInput.password) {
       const error = this.loginService.login(this.userInput.email, this.userInput.password);
       if (error) {
         this.submittedCount++;
         this.errorMessage = error;
       }
+      else{
+        return;
+      }
     }
 
     if (this.submittedCount > 3) {
       this.loginService.lockAccount(this.userInput.email);
+      const error = this.loginService.login(this.userInput.email, this.userInput.password);
+      this.errorMessage = error;
     }
   }
 }

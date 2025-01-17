@@ -1,5 +1,6 @@
 <h3>Please login</h3>
-<form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
+<p>(For testing use: admin&#64;admin.com password: password)</p>
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="form">
   <div class="form-group">
     <label for="email" class="label">Email:</label>
     <input id="email" name="email" [(ngModel)]="userInput.email" #email="ngModel" required email class="input">
@@ -18,5 +19,5 @@
       <small class="error-message">{{ errorMessage }}</small>
     </div>
   </div>
-  <button type="submit" [disabled]="loginForm.invalid" class="submit-button">Submit</button>
+  <button type="submit" class="submit-button">Submit</button>
 </form>
