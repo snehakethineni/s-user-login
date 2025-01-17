@@ -49,11 +49,7 @@ export class LoginPanelComponent implements OnInit {
 
     if (this.submittedCount > 3) {
       this.loginService.lockAccount(this.userInput.email);
-      const error = this.loginService.login(
-        this.userInput.email,
-        this.userInput.password
-      );
-      this.errorMessage = error;
+      this.errorMessage = 'Account locked';
     }
   }
 }
